@@ -11,7 +11,7 @@ namespace Core.Entities;
         [Required]
         public DateTime Fecha { get; set; }
         [Required]
-        public TimeSpan Hora { get; set; }
+        public TimeOnly Hora { get; set; }
 
         [Required]
         public int IdCliente { get; set; }
