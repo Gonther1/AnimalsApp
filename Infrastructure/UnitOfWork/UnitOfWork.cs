@@ -14,4 +14,13 @@ public class UnitOfWork : IUnitOfWork, IDisposable
     {
         _context = context;
     }
+    public async Task<int> SaveAsync()
+    {
+        return await _context.SaveChangesAsync();
+    }
+    public void Dispose()
+    {
+        _context.Dispose();
+    }
+
 }
