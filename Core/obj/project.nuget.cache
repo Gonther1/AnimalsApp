@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZOcwxp2y1R+M138TK8R4SUGjPevwPBOby8pOQEoPmxcczmbSqYYtEag6u5Wy6sqpyEC3FXEI3oharyd2204jGg==",
+  "dgSpecHash": "W7pJtobBCO14RD+C9Ep4+SPSRPkbRJYKlFuNn0mYC3U1QHMh/BbemDKjZ1+SHHmREJ81w3owq8hrRyd+FVNZdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Desktop\\AnimalsApp\\Core\\Core.csproj",
+  "projectFilePath": "/workspaces/AnimalsApp/Core/Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

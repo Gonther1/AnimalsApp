@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\AnimalsApp\\Core\\Core.csproj": {}
+    "/workspaces/AnimalsApp/Core/Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\AnimalsApp\\Core\\Core.csproj": {
+    "/workspaces/AnimalsApp/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\AnimalsApp\\Core\\Core.csproj",
+        "projectUniqueName": "/workspaces/AnimalsApp/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\USER\\Desktop\\AnimalsApp\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\AnimalsApp\\Core\\obj\\",
+        "projectPath": "/workspaces/AnimalsApp/Core/Core.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/AnimalsApp/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.306/sdk/7.0.306/RuntimeIdentifierGraph.json"
         }
       }
     }
