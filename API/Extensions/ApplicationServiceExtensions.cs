@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreRateLimit;
+using Core.Interfaces;
+using Infrastructure.UnitOfWork;
 
 namespace API.Extensions;
 
@@ -14,6 +16,11 @@ namespace API.Extensions;
                 .AllowAnyMethod()
                 .AllowAnyHeader());
         });
+
+        public static void AddAplicationServices(this IServiceCollection services)
+        {
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
+        }
 
         public static void ConfigureRateLimiting(this IServiceCollection services)
         {
