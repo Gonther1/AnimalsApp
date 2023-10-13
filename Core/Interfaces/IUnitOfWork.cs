@@ -7,5 +7,6 @@ namespace Core.Interfaces;
 
 public interface IUnitOfWork
 {
+    IPaisRepository Paises { get; }
     Task<int> SaveAsync();
 }
