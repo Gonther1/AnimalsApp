@@ -2854,19 +2854,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\APM02-54\\.nuget\\packages\\": {}
+    "C:\\Users\\USER\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\APM02-54\\Desktop\\AnimalsApp\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Desktop\\AnimalsApp\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\APM02-54\\Desktop\\AnimalsApp\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\APM02-54\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\APM02-54\\Desktop\\AnimalsApp\\API\\obj\\",
+      "projectPath": "C:\\Users\\USER\\Desktop\\AnimalsApp\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USER\\Desktop\\AnimalsApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\APM02-54\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -2878,8 +2878,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\APM02-54\\Desktop\\AnimalsApp\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\APM02-54\\Desktop\\AnimalsApp\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\USER\\Desktop\\AnimalsApp\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\USER\\Desktop\\AnimalsApp\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -2956,7 +2956,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
