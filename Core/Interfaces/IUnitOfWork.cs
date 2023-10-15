@@ -17,5 +17,5 @@ public interface IUnitOfWork
     IMascotaRepository Mascotas { get; }
     IRazaRepository Razas { get; }
     IServicioRepository Servicios { get; }
-    Task<int> SaveAsync { get; }
+    Task<int> SaveAsync();
 }
