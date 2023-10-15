@@ -35,5 +35,8 @@ public class MappingProfiles : Profile
 
         CreateMap<Mascota,MascotaDto>()
         .ReverseMap();
+
+        CreateMap<Servicio, ServicioDto>()
+        .ReverseMap();
     }
 }
