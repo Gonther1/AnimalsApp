@@ -32,8 +32,21 @@ public class PaisController : BaseControllerApi
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+    public async Task<ActionResult<Pais>> Post(PaisDto paisDto)
+    {
+        var pais = _mapper.Map<Pais>(paisDto);
+        this._unitOfWork.Paises.Add(pais);
+        await _unitOfWork.SaveAsync();
+        if (pais == null)
+        {
+            return BadRequest();
+        }
+        paisDto.Id = pais.Id;
+        return CreatedAtAction(nameof(Post), new {id = paisDto.Id }, paisDto);
+    }
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -49,24 +62,13 @@ public class PaisController : BaseControllerApi
         }
         return _mapper.Map<PaisDto>(pais);
     }
-    public async Task<ActionResult<Pais>> Post(PaisDto paisDto)
-    {
-        var pais = _mapper.Map<Pais>(paisDto);
-        this._unitOfWork.Paises.Add(pais);
-        await _unitOfWork.SaveAsync();
-        if (pais == null)
-        {
-            return BadRequest();
-        }
-        paisDto.Id = pais.Id;
-        return CreatedAtAction(nameof(Post), new {id = paisDto.Id }, paisDto);
-    }
+    
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-    public async Task<ActionResult<PaisDto>> Put(int id, [FromBody]PaisDto paisDto)
+    public async Task<ActionResult<PaisDto>> Put(int id, [FromBody] PaisDto paisDto)
     {
         if (paisDto == null)
             return NotFound();
@@ -76,7 +78,7 @@ public class PaisController : BaseControllerApi
         return paisDto;
     }
 
-    [HttpPut("{id}")]
+    [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
 
