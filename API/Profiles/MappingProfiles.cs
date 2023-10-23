@@ -30,6 +30,9 @@ public class MappingProfiles : Profile
         CreateMap<ClienteTelefono,ClienteTelefonoDto>()
         .ReverseMap();
         
+        CreateMap<ClienteDireccion,ClienteDireccionDto>()
+        .ReverseMap();
+        
         CreateMap<Raza,RazaDto>()
         .ReverseMap();
 
@@ -38,6 +41,7 @@ public class MappingProfiles : Profile
 
         CreateMap<Servicio, ServicioDto>()
         .ReverseMap();
+        
     }
     
 }
