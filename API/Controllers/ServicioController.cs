@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace API.Controllers;
+
 public class ServicioController : BaseControllerApi
 {
     private readonly IUnitOfWork _unitOfWork;
@@ -25,28 +26,34 @@ public class ServicioController : BaseControllerApi
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
     public async Task<ActionResult<IEnumerable<ServicioDto>>> Get()
     {
-        var servicios = await _unitOfWork.Servicios.GetAllAsync();
-        return _mapper.Map<List<ServicioDto>>(servicios);
+        var varServ = await _unitOfWork.Servicios.GetAllAsync();
+        return _mapper.Map<List<ServicioDto>>(varServ);
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-    public async Task<ActionResult<Servicio>> Post(ServicioDto servicioDto)
+    public async Task<ActionResult<Servicio>> Post(ServicioDto servDto)
     {
-        var servicio = _mapper.Map<Servicio>(servicioDto);
-        this._unitOfWork.Servicios.Add(servicio);
+        var varServ = _mapper.Map<Servicio>(servDto);
+
+
+
+        _unitOfWork.Servicios.Add(varServ);
+
         await _unitOfWork.SaveAsync();
-        if (servicio == null)
+        if (varServ == null)
         {
             return BadRequest();
         }
-        servicioDto.Id = servicio.Id;
-        return CreatedAtAction(nameof(Post), new {id = servicioDto.Id }, servicioDto);
+        servDto.Id = varServ.Id;
+        return CreatedAtAction(nameof(Post), new { id = servDto.Id }, servDto);
     }
+
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -54,41 +61,54 @@ public class ServicioController : BaseControllerApi
 
     public async Task<ActionResult<ServicioDto>> Get(int id)
     {
-        var servicio = await _unitOfWork.Servicios.GetByIdAsync(id);
-        if (servicio == null)
+        var varServ = await _unitOfWork.Servicios.GetByIdAsync(id);
+        if (varServ == null)
         {
             return NotFound();
         }
-        return _mapper.Map<ServicioDto>(servicio);
+        return _mapper.Map<ServicioDto>(varServ);
     }
-    
+
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-    public async Task<ActionResult<ServicioDto>> Put(int id, [FromBody] ServicioDto servicioDto)
+    public async Task<ActionResult<ServicioDto>> Put(int id, [FromBody] ServicioDto servDto)
     {
-        if (servicioDto == null)
-            return NotFound();
-        var servicios = _mapper.Map<Servicio>(servicioDto);
-        _unitOfWork.Servicios.Update(servicios);
-        await _unitOfWork.SaveAsync();
-        return servicioDto;
-    }
+        var varServ = _mapper.Map<Servicio>(servDto);
 
-    [HttpDelete("{id}")]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-
-    public async Task<ActionResult> Delete(int id)
-    {
-        var servicio = await _unitOfWork.Servicios.GetByIdAsync(id);
-        if (servicio == null)
+        if (varServ.Id == 0)
+        {
+            varServ.Id = id;
+        }
+        if (varServ.Id != id)
+        {
+            return BadRequest();
+        }
+        if (varServ == null)
         {
             return NotFound();
         }
-        _unitOfWork.Servicios.Remove(servicio);
+
+
+        servDto.Id = varServ.Id;
+        _unitOfWork.Servicios.Update(varServ);
+        await _unitOfWork.SaveAsync();
+        return servDto;
+    }
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult> Delete(int id)
+    {
+        var varServ = await _unitOfWork.Servicios.GetByIdAsync(id);
+        if (varServ == null)
+        {
+            return NotFound();
+        }
+        _unitOfWork.Servicios.Remove(varServ);
         await _unitOfWork.SaveAsync();
         return NoContent();
     }
